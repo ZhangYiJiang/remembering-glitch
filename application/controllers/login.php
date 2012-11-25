@@ -143,8 +143,7 @@ class Login extends CI_Controller {
 		
 		$insert_data = array (
 			'player_id'	=> $id,
-			'name'		=> $data['player_name'],
-			'avatar'	=> site_url($avatar_path)
+			'name'		=> $data['player_name']
 		);
 		
 		$this->db->insert('players', $insert_data);

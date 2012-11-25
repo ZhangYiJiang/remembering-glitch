@@ -7,7 +7,7 @@ class View extends CI_Controller {
 		$this->load->helper('text');
 		$this->load->helper('date');
 
-		$query = $this->db->select('name, avatar, post, type, timestamp, id, p.player_id')
+		$query = $this->db->select('name, post, type, timestamp, id, p.player_id')
 			->from('players p')
 			->join('posts o', 'o.player_id = p.player_id')
 			->where('id', $id)
@@ -82,7 +82,7 @@ class View extends CI_Controller {
 		$per_page = 40;
 
 		$query = $this->db
-			->select('name, avatar, post, type, timestamp, id, p.player_id')
+			->select('name, post, type, timestamp, id, p.player_id')
 			->from('players p')
 			->join('posts o', 'o.player_id = p.player_id'); 
 
