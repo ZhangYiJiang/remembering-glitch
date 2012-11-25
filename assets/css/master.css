@@ -1,0 +1,397 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+body {
+	font-family: Lato, Arial, sans-serif;
+	color: #444;
+	background: url('../image/bg.png') repeat fixed;
+}
+
+a {
+	color: #005C73;
+	text-decoration: none;
+	transition: all 0.2s ease 0s;
+}
+
+a:hover {
+	color: #D79035;
+}
+
+em {
+	font-style: italic;
+}
+
+strong {
+	font-weight: bold;
+}
+
+#remember {
+	width: 460px;
+	margin: 110px auto;
+	background-color: rgba(255, 255, 255, 0.87);
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	padding: 30px 40px 40px;
+
+	font-size: 16px;
+	position: relative;
+	z-index: 1;
+
+	-webkit-transition: all 1s;
+	-o-transition: all 1s;
+	-ms-transition: all 1s;
+	transition: all 1s;
+}
+
+#remember.hidden {
+	margin-left: -500px !important;
+	opacity: 0.6;
+}
+
+#hide-remember {
+	color: #FE615B;
+	font-weight: bold;
+	font-size: 12px;
+	padding: 4px 8px;
+	opacity: 0;
+
+	position: absolute;
+	right: 10px;
+	top: 10px;
+}
+
+#remember:hover #hide-remember {
+	opacity: 1;
+}
+
+#remember.hidden #hide-remember {
+	width: 40px;
+	height: 100%;
+	top: 0;
+	right: 0;
+	color: transparent;
+	padding: 0;
+}
+
+#remember.hidden #hide-remember:after {
+	color: #999;
+	content: "❭";
+	font-size: 50px;
+	left: 0;
+	position: absolute;
+	top: 25px;
+}
+
+/* Home page styles */
+
+#home p {
+	font-size: 24px;
+	text-align: center;
+}
+
+#home p img {
+	vertical-align: -16px;
+}
+
+#home p.home-meta {
+	font-size: 13px;
+	font-weight: bold;
+	color: #999;
+	margin: 16px 0 -20px;
+	text-align: left;
+}
+
+#home p.home-meta a {
+	float: right;
+	padding: 3px 6px;
+	margin-top: -3px;
+}
+
+#remember textarea {
+	width: 460px;
+	margin: 8px auto;
+	display: block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	
+	padding: 3px 4px;
+	line-height: 1.2em;
+	font-family: Lato, Arial, sans-serif;
+}
+
+/* Add new  */
+
+#add-tweet textarea {
+	height: 70px;
+	font-size: 18px;
+}
+
+#add-prose {
+	display: none;
+}
+
+#add-prose textarea {
+	height: 300px;
+	font-size: 14px;
+	resize: vertical;
+}
+
+#prose-switch {	
+	font-size: 12px;
+}
+
+#remember button {
+	font-size: 14px;
+	margin-right: 4px;
+	padding: 3px 8px 4px;
+}
+
+#character-count {
+    color: #999999;
+    font-size: 12px;
+    right: 30px;
+    position: absolute;
+    top: 32px;
+}
+
+#format-guide {
+	float: right;
+	font-size: 12px;
+}
+
+/* Individual post page */
+#remember div.tweet-header {
+	margin-bottom: 0.4em;
+	color: #999;
+}
+
+#remember div.post { 
+	line-height: 1.3em;
+	word-wrap: break-word;
+}
+
+#remember div.post p {
+	margin-bottom: 1em;
+}
+
+/* Single post */
+#remember div.tweet {
+	font-size: 40px;
+}
+
+#remember div.prose {
+	font-size: 26px;
+}
+
+#remember div.prose-long {
+	font-size: 20px;
+}
+
+/* List format */
+#remember.list {
+	width: 800px;
+}
+
+#remember.list div.item {
+	overflow: hidden;
+	margin-bottom: 4em;
+	position: relative;
+}
+
+#remember.list div.item:last-child {
+	margin-bottom: 0;
+}
+
+#remember.list div.post {
+	width: 500px;
+	min-height: 65px;
+}
+
+#remember.list div.post p:last-child {
+	margin: 0;
+}
+
+#remember.list div.meta {
+	width: 240px;
+	position: absolute;
+	margin: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+
+	padding-left: 25px;
+	border-left: 1px solid #ddd;
+}
+
+#remember.list a.add-another {
+	top: auto;
+	bottom: 0;
+	font-size: 12px;
+}
+
+#remember.list div.tweet {
+	font-size: 34px;
+}
+
+#remember.list div.prose {
+	font-size: 26px;
+}
+
+#remember.list div.prose-long {
+	font-size: 20px;
+}
+
+div.pagination {
+	overflow: hidden;
+}
+
+div.pagination a, 
+div.pagination span.current-page {
+	padding: 16px 12px;
+	font-size: 16px;
+	float: left;
+	margin-right: 6px;
+	background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Post meta area */
+#remember div.meta {
+	margin-top: 1.25em;
+	color: #999;
+	font-size: 16px;
+	font-weight: bold;
+	position: relative;
+}
+
+span.avatar {
+	background-color: #E9F0F0;
+	background-repeat: no-repeat;
+	box-shadow: 0 0 1px rgba(0, 0, 0, 0.2) inset;
+	background-position: -3px -7px;
+	background-size: 68px auto;
+	margin: 0 0.75em;
+	border-radius: 3px;
+	height: 50px;
+	width: 50px;
+	float: left;
+}
+
+#remember p.post-name {
+	font-size: 20px;
+	border-bottom: 1px solid #ccc;
+	padding: 0.2em 0;
+	margin-bottom: 0.2em;
+}
+
+#remember a.post-time {
+	font-size: 13px;
+	color: #999;
+}
+
+#remember a.post-time:hover, 
+#remember a.post-name:hover {
+	text-decoration: underline;
+}
+
+a.add-another {
+	position: absolute;
+	top: 0.2em;
+	right: 0;
+}
+
+.twitter-share-button {
+	float: right;
+}
+
+p.top-link {
+	position: fixed;
+	top: 0;
+	right: 0;
+	z-index: 2;
+}
+
+p.top-link a {
+	padding: 8px 18px 12px;
+	background: rgba(0, 0, 0, 0.075);
+	display: inline-block;
+}
+
+/* Memories Wall */
+
+#memories {
+	position: fixed;
+	top: 20px;
+	right: 20px;
+	left: 20px;
+	bottom: 20px;
+}
+
+#memories a {
+	float: left;
+	text-align: center;
+	padding: 14px 14px 20px 14px;
+	border: 1px solid transparent;
+	line-height: 1.2em;
+	
+	-webkit-transition: border-color 0.5s;
+	-o-transition: border-color 0.5s;
+	-ms-transition: border-color 0.5s;
+	transition: border-color 0.5s;
+
+	word-wrap: break-word;
+}
+
+#memories a:hover {
+	border: 1px solid;
+}
+
+#memories.faded {
+	opacity: 0.5;
+}
