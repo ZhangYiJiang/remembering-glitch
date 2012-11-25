@@ -13,7 +13,7 @@
 </div>
 
 <div class="meta">
-	<span class="avatar" style="background-image:url(<?=$avatar?>)">
+	<span class="avatar" style="background-image:url(<?=site_url("/assets/avatar/$player_id.png")?>)">
 	</span>
 	<p class="post-name"><a href="<?=site_url("player/$player_id")?>">
 		<?=$name?></a></p>
