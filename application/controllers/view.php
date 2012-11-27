@@ -20,6 +20,11 @@ class View extends CI_Controller {
 		$data = $query->row_array();
 		$data['glitch_time'] = glitch_time($data['timestamp']);
 
+		// Get snaps data 
+		$data['snaps'] = $this->db->get_where('snaps', array(
+			'post_id' => $id
+		))->result_array();
+
 		// Creating tweet
 		if ($data['type'] == 'tweet') {
 			$data['tweet'] = "I'll always remember #Glitch for " . trim(strip_tags($data['post']));
@@ -46,7 +51,7 @@ class View extends CI_Controller {
 
 		foreach ($posts as &$row) {
 			if ($row->type === 'prose') {
-				$row->post = character_limiter(strip_tags($row->post), 120);
+				$row->post = character_limiter(strip_tags($row->post), 100);
 			} else {
 				$row->post = strip_tags($row->post);
 			}

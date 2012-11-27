@@ -12,6 +12,28 @@
 	
 	<div id="remember">
 		<?php $this->load->view('post_content'); ?>
+
+		<h2>Snaps</h2>
+
+		<?php if (count($snaps)): ?>
+		<ul class="snaps">
+			<?php foreach($snaps as $snap): ?>
+			<li><a href="<?=site_url("/assets/snap/$snap[snap_id].jpeg")?>">
+				<img src="<?=site_url("/assets/snap/$snap[snap_id].jpeg")?>" 
+				alt="" title="<?=$snap[caption]?>" /></a>
+			</li>
+			<?php endforeach; ?>
+		</ul>
+		<?php elseif ($player_id == $this->session->userdata('player_id')): ?>
+		<a href="#" id="add-snap-button">Add snap</a>
+		<div id="add-snap">
+			<label for="snap_url">Long URL of the snap page <br />
+				eg. http://www.glitch.com/snaps/PHVFSV9R04A2DO9/208772-787b116ccd/</label>
+			<input name="post" id="post_id" value="<?=$id?>" type="hidden" />
+			<input name="snap" type="text" id="snap_url" />
+			<button>Submit</button>
+		</div>
+		<?php endif; ?>
 	</div>
 	
 	<div id="memories" class="faded"></div>

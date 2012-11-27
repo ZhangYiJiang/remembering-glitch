@@ -308,6 +308,7 @@ div.pagination span.current-page {
 	font-size: 16px;
 	font-weight: bold;
 	position: relative;
+	overflow: hidden;
 }
 
 span.avatar {
@@ -362,6 +363,52 @@ p.top-link a {
 	background: rgba(0, 0, 0, 0.075);
 	display: inline-block;
 }
+
+/* Snaps gallery */
+#add-snap-button {
+	display: inline-block;
+	padding: 6px 12px 7px;
+	font-weight: bold;
+	margin-top: 10px;
+	background-color: rgba(0, 0, 0, 0.08);
+}
+
+#add-snap {
+	display: none;
+	margin-top: 30px;
+}
+
+#add-snap label {
+	font-size: 10px;
+	margin-bottom: 3px;
+	text-transform: uppercase;
+	color: #999;
+	display: block;
+}
+
+#add-snap input[type="text"] {
+	width: 350px;
+	font-size: 16px;
+	padding: 3px 5px 4px;
+}
+
+#add-snap button {
+	float: right;
+}
+
+ul.snaps {
+	margin-top: 40px;
+}
+
+ul.snaps li {
+	margin-bottom: 10px;
+}
+
+ul.snaps li img {
+	display: block;
+	max-width: 460px;
+}
+
 
 /* Memories Wall */
 

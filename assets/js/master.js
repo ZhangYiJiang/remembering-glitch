@@ -54,7 +54,7 @@ function renderItem (data) {
 	var colspan = Math.ceil(Math.random() * 2);	
 
 	// Scale font size with number of characters
-	var fontSize = Math.round(15 + ((140 - data.post.length) / 120) * 20 * colspan);
+	var fontSize = Math.round(15 + ((120 - data.post.length) / 120) * 20 * colspan);
 
 	// Random number of columns 
 	var width = colspan * colWidth - postPadding;
@@ -128,6 +128,32 @@ $('#prose-switch').click(function(){
 
 	var proseArea = $('#add-prose textarea');
 	proseArea.val(proseArea.val() + tweetTextarea.val());
+
+	return false;
+});
+
+// Add snap thingy 
+$('#add-snap-button').click(function(){
+	$(this).slideUp(150);
+	$('#add-snap').slideDown(150);
+
+	return false;
+});
+
+$('#add-snap button').click(function(){
+	var btn = $(this).prop('disabled', true);
+
+	$.post('/memorial/add/snap', {
+		'snap': $('#snap_url').val(), 
+		'post': $('#post_id').val()
+	}, function(data) {
+		if (data == 'Success') {
+			window.location.reload();
+		} else {
+			alert(data + '. Please try again later.');
+			btn.prop('disabled', false);
+		}
+	});
 
 	return false;
 });
