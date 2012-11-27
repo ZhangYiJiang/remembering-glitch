@@ -2,8 +2,10 @@
 
 function glitch_time ($timestamp) {
 
-	$weekday_name = array('Hairday','Moonday','Twoday','Weddingday','Theday','Fryday','Standday','Fabday');
-	$month_name = array('Primuary','Spork','Bruise','Candy','Fever','Junuary','Septa','Remember','Doom','Widdershins','Eleventy');
+	$weekday_name = array('Hairday','Moonday','Twoday','Weddingday',
+		'Theday','Fryday','Standday','Fabday');
+	$month_name = array('Primuary','Spork','Bruise','Candy','Fever',
+		'Junuary','Septa','Remember','Doom','Widdershins','Eleventy','Recurse');
 
 	if (is_string($timestamp)) {
 		$timestamp = strtotime($timestamp);
