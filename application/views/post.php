@@ -3,6 +3,7 @@
 <head>
 	<title>A Memorial for a Game of Giant Imaginations</title>
 	<?php $this->load->view('includes'); ?>
+	<link rel="stylesheet" type="text/css" href="<?=site_url('assets/css/slimbox2.css')?>" />
 </head>
 <body>
 	<?php $this->load->view('top_links') ?>
@@ -13,9 +14,10 @@
 		<?php if (count($snaps)): ?>
 		<ul class="snaps">
 			<?php foreach($snaps as $snap): ?>
-			<li><a href="<?=site_url("/assets/snap/$snap[snap_id].jpeg")?>">
-				<img src="<?=site_url("/assets/snap/$snap[snap_id].jpeg")?>" 
-				alt="" title="<?=$snap[caption]?>" /></a>
+			<li><a rel="lightbox" title="<?=$snap[caption]?>" 
+				href="<?=site_url("/assets/snap/$snap[snap_id].jpeg")?>">
+				<img src="<?=site_url("/assets/snap/$snap[snap_id].jpeg")?>" alt="" />
+			</a>
 			</li>
 			<?php endforeach; ?>
 		</ul>
@@ -40,6 +42,7 @@
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 	<script src="<?=site_url('assets/js/jquery.masonry.min.js')?>"></script>
 	<script src="<?=site_url('assets/js/master.js')?>"></script>
+	<script src="<?=site_url('assets/js/slimbox2.js')?>"></script>
 	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 </body>
 </html>

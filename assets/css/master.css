@@ -395,11 +395,11 @@ p.top-link a {
 /* Snaps gallery */
 
 #add-snap {
-	margin-top: 40px;
+	margin-top: 55px;
 }
 
 #add-snap h3 {
-	font-size: 20px;
+	font-size: 17px;
 	margin-bottom: 18px;
 	border-bottom: 1px solid #ccc;
 	text-align: center;
@@ -441,7 +441,7 @@ ul.snaps li {
 ul.snaps li img {
 	display: block;
 	max-width: 540px;
-	margin: 0 -20px;
+	margin: 0 -40px;
 }
 
 
