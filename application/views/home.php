@@ -5,11 +5,7 @@
 	<?php $this->load->view('includes'); ?>
 </head>
 <body>
-	<p class="top-link">
-		<a href="https://twitter.com/RememberGlitch">@RememberGlitch</a>
-		<a href="<?=site_url('view')?>">All Memories</a>
-		<a href="#" id="refresh">Refresh</a>
-	</p>
+	<?php $this->load->view('top_links') ?>
 
 	<div id="remember">
 		<div id="home">

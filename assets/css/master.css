@@ -57,7 +57,11 @@ body {
 a {
 	color: #005C73;
 	text-decoration: none;
-	transition: all 0.2s ease 0s;
+
+	-webkit-transition: all 0.2s;
+	-o-transition: all 0.2s;
+	-ms-transition: all 0.2s;
+	transition: all 0.2s;
 }
 
 a:hover {
@@ -79,19 +83,14 @@ strong {
 	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 	border: 1px solid rgba(0, 0, 0, 0.1);
 	padding: 30px 40px 40px;
+	overflow: hidden;
 
 	font-size: 16px;
 	position: relative;
 	z-index: 1;
-
-	-webkit-transition: all 1s;
-	-o-transition: all 1s;
-	-ms-transition: all 1s;
-	transition: all 1s;
 }
 
 #remember.hidden {
-	margin-left: -500px !important;
 	opacity: 0.6;
 }
 
@@ -107,7 +106,8 @@ strong {
 	top: 10px;
 }
 
-#remember:hover #hide-remember {
+#remember:hover #hide-remember, 
+#remember.hidden #hide-remember {
 	opacity: 1;
 }
 
@@ -236,7 +236,7 @@ strong {
 
 /* List format */
 #remember.list {
-	width: 800px;
+	width: 930px;
 }
 
 #remember.list div.item {
@@ -247,6 +247,11 @@ strong {
 
 #remember.list div.item:last-child {
 	margin-bottom: 0;
+}
+
+#remember.list div.post, 
+#remember.list div.tweet-header {
+	margin-left: 135px;
 }
 
 #remember.list div.post {
@@ -286,6 +291,28 @@ strong {
 
 #remember.list div.prose-long {
 	font-size: 20px;
+}
+
+a.item-number {
+	position: absolute;
+	font-size: 36px;
+	font-weight: bold;
+	color: rgba(0, 0, 0, 0.25);
+	width: 630px;
+	height: 100%;
+}
+
+a.item-number:hover {
+	color: rgba(0, 0, 0, 0.6);
+}
+
+a.item-number span {
+	font-size: 14px;
+	vertical-align: super;
+	border-bottom: 1px solid;
+	display: inline-block;
+	margin-right: 3px;
+	padding-bottom: 3px;
 }
 
 div.pagination {
@@ -356,6 +383,7 @@ p.top-link {
 	top: 0;
 	right: 0;
 	z-index: 2;
+	background-color: rgba(255, 255, 255, 0.8);	
 }
 
 p.top-link a {
@@ -365,23 +393,29 @@ p.top-link a {
 }
 
 /* Snaps gallery */
-#add-snap-button {
-	display: inline-block;
-	padding: 6px 12px 7px;
-	font-weight: bold;
-	margin-top: 10px;
-	background-color: rgba(0, 0, 0, 0.08);
-}
 
 #add-snap {
-	display: none;
-	margin-top: 30px;
+	margin-top: 40px;
 }
 
-#add-snap label {
-	font-size: 10px;
-	margin-bottom: 3px;
-	text-transform: uppercase;
+#add-snap h3 {
+	font-size: 20px;
+	margin-bottom: 18px;
+	border-bottom: 1px solid #ccc;
+	text-align: center;
+	line-height: 0.2em;
+}
+
+#add-snap h3 span {
+	padding: 0 12px;
+	background-color: #fff;
+}
+
+#add-snap label, 
+p.form-example {
+	font-size: 11px;
+	margin: 5px 0;
+	font-weight: bold;
 	color: #999;
 	display: block;
 }
@@ -406,7 +440,8 @@ ul.snaps li {
 
 ul.snaps li img {
 	display: block;
-	max-width: 460px;
+	max-width: 540px;
+	margin: 0 -20px;
 }
 
 

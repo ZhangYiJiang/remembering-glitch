@@ -35,6 +35,7 @@ class Login extends CI_Controller {
 		$args = array (
 			'response_type'	=> 'code',
 			'client_id'		=> $this->config->item('client_id'),
+			'state'			=> $this->input->get('return_url'),
 			'redirect_uri'	=> site_url('login/auth'),
 			'scope'			=> 'identity'
 		);
@@ -113,7 +114,7 @@ class Login extends CI_Controller {
 		}
 		
 		// Go back to add page
-		redirect("/add");
+		redirect($this->input->get('state'));
 	}
 	
 	/* 

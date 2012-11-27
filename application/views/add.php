@@ -5,10 +5,8 @@
 	<?php $this->load->view('includes'); ?>
 </head>
 <body>
-	<p class="top-link">
-		<a href="#" id="refresh">Refresh</a>
-		<a href="<?=site_url()?>">Back to memorials →</a>
-	</p>
+	<?php $this->load->view('top_links') ?>
+	
 	<div id="remember">
 		<form id="add-tweet" action="<?=site_url('add/save')?>" method="POST">
 			I'll always remember Glitch for

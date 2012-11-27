@@ -54,7 +54,7 @@ function renderItem (data) {
 	var colspan = Math.ceil(Math.random() * 2);	
 
 	// Scale font size with number of characters
-	var fontSize = Math.round(15 + ((120 - data.post.length) / 120) * 20 * colspan);
+	var fontSize = Math.round(20 + ((120 - data.post.length) / 120) * 15 * colspan);
 
 	// Random number of columns 
 	var width = colspan * colWidth - postPadding;
@@ -104,12 +104,16 @@ $('#refresh').on('click', function(){
 });
 
 // Hide #remember button 
-$('#remember').css('margin-left', function(){
-	return $(this).offset().left;
-});
+var remember = $('#remember');
 
-$('#hide-remember').on('click', function(){
-	$('#remember').toggleClass('hidden');
+$('#hide-remember').click(function(){
+	var margin = parseInt(remember.css('margin-left'), 10) == -500 ? 
+		($(window).width() - remember.width()) / 2 : -500;
+
+	remember.toggleClass('hidden').animate({
+		marginLeft: margin
+	}, 1000);
+
 	return false;
 });
 
@@ -133,13 +137,6 @@ $('#prose-switch').click(function(){
 });
 
 // Add snap thingy 
-$('#add-snap-button').click(function(){
-	$(this).slideUp(150);
-	$('#add-snap').slideDown(150);
-
-	return false;
-});
-
 $('#add-snap button').click(function(){
 	var btn = $(this).prop('disabled', true);
 

@@ -5,15 +5,10 @@
 	<?php $this->load->view('includes'); ?>
 </head>
 <body>
-	<p class="top-link">
-		<a href="#" id="refresh">Refresh</a>
-		<a href="<?=site_url()?>">Back to memorials →</a>
-	</p>
+	<?php $this->load->view('top_links') ?>
 	
 	<div id="remember">
 		<?php $this->load->view('post_content'); ?>
-
-		<h2>Snaps</h2>
 
 		<?php if (count($snaps)): ?>
 		<ul class="snaps">
@@ -25,13 +20,17 @@
 			<?php endforeach; ?>
 		</ul>
 		<?php elseif ($player_id == $this->session->userdata('player_id')): ?>
-		<a href="#" id="add-snap-button">Add snap</a>
+		
 		<div id="add-snap">
-			<label for="snap_url">Long URL of the snap page <br />
-				eg. http://www.glitch.com/snaps/PHVFSV9R04A2DO9/208772-787b116ccd/</label>
-			<input name="post" id="post_id" value="<?=$id?>" type="hidden" />
+			<h3><span>Add a snap to this memory</span></h3>
+
+			<label for="snap_url">Long URL of the snap page</label>
 			<input name="snap" type="text" id="snap_url" />
 			<button>Submit</button>
+
+			<p class="form-example">eg. http://www.glitch.com/snaps/PHVFSV9R04A2DO9/208772-787b116ccd/</p>
+
+			<input name="post" id="post_id" value="<?=$id?>" type="hidden" />
 		</div>
 		<?php endif; ?>
 	</div>
