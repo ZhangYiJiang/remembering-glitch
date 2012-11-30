@@ -63,6 +63,11 @@ class View extends CI_Controller {
 	public function jsonp ()
 	{
 		$this->load->helper('date');
+		$callback = $this->input->get('callback');
+
+		if ($callback === FALSE) {
+			$callback = 'callback';
+		}
 
 		$post = $this->db
 			->select('name, timestamp, post, id, type')
@@ -75,7 +80,7 @@ class View extends CI_Controller {
 
 		$post->time = glitch_time($post->timestamp);
 
-		echo "process (" . json_encode($post) . ");";
+		echo "$callback (" . json_encode($post) . ");";
 	}
 
 	public function all ($player_id = FALSE, $page = 1)
