@@ -1,19 +1,22 @@
 // Load memorial messages
 var memories = $('#memories'), 
-	margin = 20, postPadding = 15*2, targetColWidth = 170 + postPadding,
-	cols = Math.round( memories.width() / targetColWidth), 
-	colWidth = Math.floor(memories.width() / cols), 
 	colors = ['#FE615B', '#FEA26E', '#FF7300', '#B9BF04', 
 				'#1485CC', '#8D5DDE', '#D97925', '#D97925', '#002635', 
 				'#AEC844', '#6DD0FF', '#452743', '#F2C500', '#578091', 
 				'#A3E2ED', '#93BA43', '#B8503B'],
-	anchors;
+	anchors, postPadding, targetColWidth, cols, colWidth;
 
 var dataUrl = '/memorial/view/load/';
 
 $(document).on('fontfaceapplied', getMemories);
 
 function getMemories () {
+	// Calculate column counts and widths
+	postPadding = 15*2; 
+	targetColWidth = 170 + postPadding;
+	cols = Math.round( memories.width() / targetColWidth);
+	colWidth = Math.floor(memories.width() / cols);
+
 	memories.empty();
 
 	memories.masonry({
