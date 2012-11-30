@@ -39,7 +39,7 @@ function processMemories (data) {
 
 	// Remove the ones that cannot be seen 
 	memories.children().each(function(){
-		if ($(this).offset().top > $(window).height()) {
+		if ($(this).position().top > $(window).height()) {
 			$(this).remove();
 		}
 	});

@@ -88,7 +88,7 @@ class View extends CI_Controller {
 		if ($player_id) {
 			// Allows for multiple players 
 			$player_id = explode('+', $player_id);
-			
+
 			// Don't use pagination on player pages
 			$config['total_rows'] = 0;
 
@@ -119,6 +119,20 @@ class View extends CI_Controller {
 			'post' => $post
 		));
 		
+	}
+
+	public function tinyspeck ()
+	{
+		$tinyspeckers = array(
+			'PLI16FSFK2I91',	// stoot barfield
+			'PIF5NL12S3D1BH3',	// Jade
+			'PIF115TJK2OP0',	// Kukubee
+			'PLI10TT96BL3U',	// Danny 
+			'PM12AQIK3502KK9',	// Araldia
+			'PM1OI84B9S12UMB'	// Rascalmom
+		);
+
+		$this->all(implode('+', $tinyspeckers));
 	}
 
 

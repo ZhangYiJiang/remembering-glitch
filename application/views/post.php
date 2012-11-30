@@ -14,7 +14,7 @@
 		<?php if (count($snaps)): ?>
 		<ul class="snaps">
 			<?php foreach($snaps as $snap): ?>
-			<li><a rel="lightbox" title="<?=$snap[caption]?>" 
+			<li><a rel="lightbox" title="<?=$snap['caption']?>" 
 				href="<?=site_url("/assets/snap/$snap[snap_id].jpeg")?>">
 				<img src="<?=site_url("/assets/snap/$snap[snap_id].jpeg")?>" alt="" />
 			</a>

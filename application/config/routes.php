@@ -38,13 +38,14 @@
 |
 */
 
-$route['default_controller'] = "welcome";
-$route['404_override'] = '';
+$route['default_controller']	= "welcome";
+$route['404_override']			= '';
 
-$route['view'] = 'view/all/0';
-$route['view/(:num)'] = 'view/all/0/$1';
-$route['player/(:any)'] = 'view/all/$1';
-$route['(:num)'] = "view/single/$1";
+$route['tinyspeck']				= 'view/tinyspeck';
+$route['view']					= 'view/all/0';
+$route['view/(:num)']			= 'view/all/0/$1';
+$route['player/(:any)']			= 'view/all/$1';
+$route['(:num)']				= "view/single/$1";
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
