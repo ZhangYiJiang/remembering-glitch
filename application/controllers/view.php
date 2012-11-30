@@ -18,23 +18,12 @@ class View extends CI_Controller {
 		}
 
 		$data = $query->row_array();
-		$data['glitch_time'] = glitch_time($data['timestamp']);
+		$data = $this->processMemory($data);
 
 		// Get snaps data 
 		$data['snaps'] = $this->db->get_where('snaps', array(
 			'post_id' => $id
 		))->result_array();
-
-		// Creating tweet
-		if ($data['type'] == 'tweet') {
-			$data['tweet'] = "I'll always remember #Glitch for " . trim(strip_tags($data['post']));
-		} else {
-			$data['tweet'] = character_limiter(strip_tags($data['post']), 135);
-
-			if (strlen($data['post']) > 500) {
-				$data['type'] .= '-long';
-			}
-		}
 
 		$this->load->view('post', $data + array('twitter' => TRUE));
 	}
@@ -97,11 +86,14 @@ class View extends CI_Controller {
 			->join('posts o', 'o.player_id = p.player_id'); 
 
 		if ($player_id) {
+			// Allows for multiple players 
+			$player_id = explode('+', $player_id);
+			
 			// Don't use pagination on player pages
 			$config['total_rows'] = 0;
 
 			$post = $query
-				->where('p.player_id', $player_id)
+				->where_in('p.player_id', $player_id)
 				->get()
 				->result_array();
 			
@@ -120,24 +112,32 @@ class View extends CI_Controller {
 		$this->pagination->initialize($config);
 
 		foreach ($post as &$row) {
-			$row['glitch_time'] = glitch_time($row['timestamp']);
-
-			// Creating tweet
-			if ($row['type'] == 'tweet') {
-				$row['tweet'] = "I'll always remember #Glitch for " . trim(strip_tags($row['post']));
-			} else {
-				$row['tweet'] = character_limiter(strip_tags($row['post']), 135);
-
-				if (strlen($row['post']) > 500) {
-					$row['type'] .= '-long';
-				}
-			}
+			$row = $this->processMemory($row);
 		}
 		
 		$this->load->view('list', array (
 			'post' => $post
 		));
 		
+	}
+
+
+	private function processMemory ($row) 
+	{
+		$row['glitch_time'] = glitch_time($row['timestamp']);
+
+		// Creating tweet
+		if ($row['type'] == 'tweet') {
+			$row['tweet'] = "I'll always remember #Glitch for " . trim(strip_tags($row['post']));
+		} else {
+			$row['tweet'] = character_limiter(strip_tags($row['post']), 135);
+
+			if (strlen($row['post']) > 500) {
+				$row['type'] .= '-long';
+			}
+		}
+
+		return $row;
 	}
 
 }

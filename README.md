@@ -15,8 +15,10 @@ overwritten.
 http://htmlpurifier.org/download and unzip it in the `application/helper` 
 folder. Rename `HTMLPurifier.standalone.php` to `purify_helper`
 
-4. Edit `config.php` and `database.php` in the `application/config` folder. 
-If Glitch's API is still up, apply for an API key. If using the Tweetbot desired, 
+4. Edit `config.php` and `database.php` in the `application/config` folder 
+with config data for your server and database. Add `+` to the list of allowed 
+URL characters by editing the `$config['permitted_uri_chars']` setting. 
+If Glitch's API is still up, apply for an API key. If using the Tweetbot, 
 apply for a Twitter API key. Use the OAuth test page in the developer page to 
 find the user token and secret of the account from which the bot is tweeting 
 from, then add the following lines to `config.php`: 
